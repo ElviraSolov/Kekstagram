@@ -2,7 +2,7 @@ import { getRandomPositiveInteger, getRandomArrayElement, createIdGenerator } fr
 
 // const COMMENT_LENGTH = 140;
 // const HASHTAG_LENGTH = 20;
-const POSTS_COUNT = 25;
+const PICTURES_COUNT = 25;
 
 const NAMES = [
   'Полина',
@@ -15,7 +15,9 @@ const NAMES = [
 
 const MESSAGES = [
   'Всё отлично!',
+  'Да это фоташоп!!!!!!!!',
   'В целом всё неплохо. Но не всё.',
+  'Мега фото! Просто обалдеть. Как вам так удалось?',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
   'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
@@ -24,6 +26,7 @@ const MESSAGES = [
 
 const DESCRIPTIONS = [
   'Угадайте, где я?',
+  'Тестим новую камеру!',
   'Выходные, пожалуйста, не покидайте меня. #relax #отдых',
   'Разбираю свою жизнь, как Мари Кондо. #осознанность',
   'Соскучились?',
@@ -36,7 +39,7 @@ const DESCRIPTIONS = [
 ];
 
 const generateCommentId = createIdGenerator();
-const generatePostId = createIdGenerator();
+const generatePictureId = createIdGenerator();
 
 const createComment = () => ({
   id: generateCommentId(),
@@ -45,11 +48,11 @@ const createComment = () => ({
   name: getRandomArrayElement(NAMES),
 });
 
-function createPost() {
-  const postId = generatePostId();
+function createPicture() {
+  const pictureId = generatePictureId();
   return {
-    id: postId,
-    url: `photos/${  postId  }.jpg`,
+    id: pictureId,
+    url: `photos/${  pictureId  }.jpg`,
     description: getRandomArrayElement(DESCRIPTIONS),
     likes: getRandomPositiveInteger(15, 200),
     comments: Array.from(
@@ -58,11 +61,11 @@ function createPost() {
   };
 }
 
-const getPosts = () => {
-  const posts = Array.from(
-    {length: POSTS_COUNT}, createPost
+const getPictures = () => {
+  const pictures = Array.from(
+    {length: PICTURES_COUNT}, createPicture
   );
-  return(posts);
+  return(pictures);
 };
 
-export { getPosts };
+export { getPictures };
