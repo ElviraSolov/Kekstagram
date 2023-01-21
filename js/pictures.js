@@ -1,17 +1,35 @@
-import { getPictures } from './data.js';
+import { openBigPicture } from './big-picture.js';
 
-const picturesList = getPictures();
-const templatePicture = document.querySelector('#picture').content;
-const picturesFragment = document.createDocumentFragment();
+const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
+const picturesContainer = document.querySelector('.pictures');
 
-picturesList.forEach(({url, likes, comments}) => {
-  const picture = templatePicture.cloneNode(true);
+// функиця, создает элемент для фото на основе массива (из data.js)
+const createPicture = (data) => {
+  const { comments, description, likes, url } = data;
+  const picture = pictureTemplate.cloneNode(true);
+
   picture.querySelector('.picture__img').src = url;
-  picture.querySelector('.picture__likes').textContent = likes;
+  picture.querySelector('.picture__img').alt = description;
   picture.querySelector('.picture__comments').textContent = comments.length;
-  picturesFragment.appendChild(picture);
-});
+  picture.querySelector('.picture__likes').textContent = likes;
 
-document.querySelector('.pictures').appendChild(picturesFragment);
+  picture.addEventListener('click', () => {
+    openBigPicture(data);
+  });
 
+  return picture;
+};
 
+// создает фрагмент и добавляет в него все фото из массива
+const renderPictures = (pictures) => {
+  const fragment = document.createDocumentFragment();
+  pictures.forEach((picture) => {
+    const pictureElement = createPicture(picture);
+    fragment.append(pictureElement);
+  });
+
+  // добавляет фрагмент на страницу
+  picturesContainer.append(fragment);
+}
+
+export { renderPictures };

@@ -8,7 +8,8 @@ function getRandomPositiveInteger (a, b = 0) {
   return Math.floor(result);
 }
 
-const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0, elements.length - 1)];
+const getRandomArrayElement = (elements) =>
+  elements[getRandomPositiveInteger(0, elements.length - 1)];
 
 const checkStringLength = (string, length) => string.length <= length;
 
@@ -20,4 +21,8 @@ function createIdGenerator() {
   };
 }
 
-export { getRandomPositiveInteger, getRandomArrayElement, checkStringLength, createIdGenerator };
+const isEscapeKey = (evt) => {
+  return evt.key === 'Escape';
+};
+
+export { getRandomPositiveInteger, getRandomArrayElement, checkStringLength, createIdGenerator, isEscapeKey };

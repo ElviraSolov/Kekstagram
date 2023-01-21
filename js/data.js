@@ -4,16 +4,9 @@ import { getRandomPositiveInteger, getRandomArrayElement, createIdGenerator } fr
 // const HASHTAG_LENGTH = 20;
 const PICTURES_COUNT = 25;
 
-const NAMES = [
-  'Полина',
-  'Максим',
-  'Кира',
-  'Мария',
-  'Арина',
-  'Варвара',
-];
+const NAMES = ['Полина', 'Максим', 'Кира', 'Мария', 'Арина', 'Варвара'];
 
-const MESSAGES = [
+const COMMENTS = [
   'Всё отлично!',
   'Да это фоташоп!!!!!!!!',
   'В целом всё неплохо. Но не всё.',
@@ -44,7 +37,7 @@ const generatePictureId = createIdGenerator();
 const createComment = () => ({
   id: generateCommentId(),
   avatar: `img/avatar-${  getRandomPositiveInteger(1, 6)  }.svg`,
-  message: getRandomArrayElement(MESSAGES),
+  message: getRandomArrayElement(COMMENTS),
   name: getRandomArrayElement(NAMES),
 });
 
