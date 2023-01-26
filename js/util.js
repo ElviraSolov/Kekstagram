@@ -25,4 +25,4 @@ const isEscapeKey = (evt) => {
   return evt.key === 'Escape';
 };
 
-export { getRandomPositiveInteger, getRandomArrayElement, checkStringLength, createIdGenerator, isEscapeKey };
+export { getRandomPositiveInteger, getRandomArrayElement, createIdGenerator, isEscapeKey };

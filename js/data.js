@@ -1,7 +1,6 @@
 import { getRandomPositiveInteger, getRandomArrayElement, createIdGenerator } from './util.js';
 
 // const COMMENT_LENGTH = 140;
-// const HASHTAG_LENGTH = 20;
 const PICTURES_COUNT = 25;
 
 const NAMES = ['Полина', 'Максим', 'Кира', 'Мария', 'Арина', 'Варвара'];
