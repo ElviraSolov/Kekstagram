@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="nouislider/nouislider.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <title>Кекстаграм</title>
 </head>
@@ -58,7 +59,7 @@
                   <!-- Изменение глубины эффекта, накладываемого на изображение -->
                   <fieldset class="img-upload__effect-level  effect-level">
                     <input class="effect-level__value" type="number" step="any" name="effect-level" value="">
-                    <div class="effect-level__slider"></div>
+                    <div class="effect-level__slider hidden"></div>
                   </fieldset>
 
                   <!-- Кнопка для закрытия формы редактирования изображения -->
@@ -115,8 +116,13 @@
 
                 <!-- Добавление хэш-тегов и комментария к изображению -->
                 <fieldset class="img-upload__text text">
-                  <input type="text" class="text__hashtags" name="hashtags" placeholder="#ХэшТег">
-                  <textarea class="text__description" name="description" placeholder="Ваш комментарий..." maxlength="140"></textarea>
+                  <div class="img-upload__element">
+                    <input type="text" class="text__hashtags" name="hashtags" placeholder="#ХэшТег">
+                  </div>
+                  <div class="img-upload__element">
+                    <textarea class="text__description" name="description" placeholder="Ваш комментарий..." maxlength="140"
+                    data-pristine-maxlength-message="Комментарий не может быть длиннее 140 символов"></textarea>
+                  </div>
                 </fieldset>
 
                 <!-- Кнопка для отправки данных на сервер -->

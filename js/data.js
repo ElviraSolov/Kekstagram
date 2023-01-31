@@ -1,6 +1,5 @@
 import { getRandomPositiveInteger, getRandomArrayElement, createIdGenerator } from './util.js';
 
-// const COMMENT_LENGTH = 140;
 const PICTURES_COUNT = 25;
 
 const NAMES = ['Полина', 'Максим', 'Кира', 'Мария', 'Арина', 'Варвара'];
@@ -48,7 +47,7 @@ function createPicture() {
     description: getRandomArrayElement(DESCRIPTIONS),
     likes: getRandomPositiveInteger(15, 200),
     comments: Array.from(
-      {length: getRandomPositiveInteger(0, 6)}, createComment
+      {length: getRandomPositiveInteger(0, 15)}, createComment
     ),
   };
 }
