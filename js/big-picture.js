@@ -1,6 +1,5 @@
 import { isEscapeKey } from './util.js';
 import { resetScale } from './picture-editing.js';
-import './form.js';
 
 const body = document.querySelector('body');
 const closeButton = document.querySelector('.big-picture__cancel');
@@ -91,4 +90,4 @@ const onCloseButtonClick = () => {
 
 closeButton.addEventListener('click', onCloseButtonClick);
 
-export { openBigPicture };
+export { openBigPicture, closeBigPicture };

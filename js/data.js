@@ -44,19 +44,19 @@ function createPicture() {
   return {
     id: pictureId,
     url: `photos/${  pictureId  }.jpg`,
-    description: getRandomArrayElement(DESCRIPTIONS),
     likes: getRandomPositiveInteger(15, 200),
     comments: Array.from(
       {length: getRandomPositiveInteger(0, 15)}, createComment
     ),
+    description: getRandomArrayElement(DESCRIPTIONS),
   };
 }
 
-const getPictures = () => {
-  const pictures = Array.from(
-    {length: PICTURES_COUNT}, createPicture
-  );
-  return(pictures);
-};
+// const getPictures = () => {
+//   const pictures = Array.from(
+//     {length: PICTURES_COUNT}, createPicture
+//   );
+//   return(pictures);
+// };
 
-export { getPictures };
+// export { getPictures };
