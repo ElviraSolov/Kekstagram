@@ -1,6 +1,7 @@
 import { isEscapeKey } from './util.js';
 import { sendData } from './api.js';
 import { showAlert, successMessage } from './util.js';
+//import { renderPictures } from './pictures.js';
 
 const form = document.querySelector('.img-upload__form');
 const uploadFile = form.querySelector('#upload-file');

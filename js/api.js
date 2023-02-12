@@ -15,7 +15,7 @@ const sendData = (onSuccess, onFail, body) => {
   )
   .then((response) => {
     if(!response.ok) {
-      throw new Error('Не удалось отправить форму. Попробуйте еще раз');
+      throw new Error('Не удалось отправить фото. Попробуйте еще раз');
     }
     onSuccess();
   })

@@ -22,6 +22,7 @@ const createPicture = (data) => {
 
 // создает фрагмент и добавляет в него все фото из массива
 const renderPictures = (pictures) => {
+  picturesContainer.querySelectorAll('.picture').forEach((element) => element.remove());
   const fragment = document.createDocumentFragment();
   pictures.forEach((picture) => {
     const pictureElement = createPicture(picture);
