@@ -1,7 +1,6 @@
 import { isEscapeKey } from './util.js';
 import { sendData } from './api.js';
 import { showAlert, successMessage } from './util.js';
-//import { renderPictures } from './pictures.js';
 
 const form = document.querySelector('.img-upload__form');
 const uploadFile = form.querySelector('#upload-file');
@@ -17,7 +16,14 @@ const MIN_HASHTAG_LENGTH = 2;
 const MAX_HASHTAG_LENGTH = 20;
 const UNVALID_SYMBOLS = /[^a-zA-Z0-9а-яА-ЯёЁ]/g;
 
-var pristine = new Pristine(form, {
+const onEscKeydown = (evt) => {
+  if (isEscapeKey(evt) && !isTextFieldFocused()) {
+    evt.preventDefault();
+    closeUploadOverlay();
+  }
+};
+
+let pristine = new Pristine(form, {
   classTo: 'img-upload__element',
   errorTextParent: 'img-upload__element',
   errorTextClass: 'img-upload__error'
@@ -40,13 +46,6 @@ const closeUploadOverlay = () => {
 const isTextFieldFocused = () =>
   document.activeElement === hashtags ||
   document.activeElement === comment;
-
-const onEscKeydown = (evt) => {
-  if (isEscapeKey(evt) && !isTextFieldFocused()) {
-    evt.preventDefault();
-    closeUploadOverlay();
-  }
-};
 
 const startsWithHash = (string) => string[0] === '#';
 
@@ -91,7 +90,7 @@ const blockSubmitButton = () => {
 const unblockSubmitButton = () => {
   submitButton.disabled = false;
   submitButton.textContent = 'Опубликовать';
-}
+};
 
 const onSendDataSuccess = () => {
   closeUploadOverlay();

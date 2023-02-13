@@ -74,16 +74,6 @@ noUiSlider.create(slider, {
   connect: 'lower',
 });
 
-const onFormChange = (evt) => {
-  if (!evt.target.classList.contains('effects__radio')) {
-    return;
-  }
-  chosenEffect = EFFECTS.find((effect) => effect.name === evt.target.value);
-  updateSlider(chosenEffect);
-};
-
-const isDefault = () => chosenEffect === DEFAULT_EFFECT;
-
 const updateSlider = (chosenEffect) => {
   slider.classList.remove('hidden');
   slider.noUiSlider.updateOptions({
@@ -100,13 +90,23 @@ const updateSlider = (chosenEffect) => {
   }
 };
 
+const onFormChange = (evt) => {
+  if (!evt.target.classList.contains('effects__radio')) {
+    return;
+  }
+  chosenEffect = EFFECTS.find((effect) => effect.name === evt.target.value);
+  updateSlider(chosenEffect);
+};
+
+const isDefault = () => chosenEffect === DEFAULT_EFFECT;
+
 const onSliderUpdate = () => {
   image.style.filter = 'none';
   image.className = '';
-  let effectValue = slider.noUiSlider.get();
+  const effectValue = slider.noUiSlider.get();
   image.classList.add(`effects__preview--${chosenEffect.name}`);
   image.style.filter = `${chosenEffect.style}(${effectValue}${chosenEffect.unit})`;
-}
+};
 
 slider.noUiSlider.on('update', onSliderUpdate);
 form.addEventListener('change', onFormChange);

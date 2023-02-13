@@ -31,6 +31,6 @@ const renderPictures = (pictures) => {
 
   // добавляет фрагмент на страницу
   picturesContainer.append(fragment);
-}
+};
 
 export { renderPictures };

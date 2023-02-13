@@ -18,13 +18,13 @@ const turnFilterOn = (loadedPictures) => {
   filtersElement.classList.remove('img-filters--inactive');
   pictures = [...loadedPictures];
   currentFilter = Filter.DEFAULT;
-}
+};
 
 const randomSort = () => Math.random() - 0.5;
 
 const discussedSort = (pictureA, pictureB) => {
   return pictureB.comments.length - pictureA.comments.length;
-}
+};
 
 const filterPictures = () => {
   switch (currentFilter)  {
@@ -35,7 +35,7 @@ const filterPictures = () => {
     default:
       return [...pictures];
   }
-}
+};
 
 const debouncedRenderPictures = debounce(renderPictures);
 
@@ -56,6 +56,6 @@ filtersElement.addEventListener('click', (evt) => {
   clickedButton.classList.add('img-filters__button--active');
   currentFilter = clickedButton.id;
   debouncedRenderPictures(filterPictures());
-})
+});
 
-export { turnFilterOn, filterPictures }
+export { turnFilterOn, filterPictures };

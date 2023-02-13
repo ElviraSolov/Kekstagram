@@ -31,7 +31,7 @@ const renderPictureDetails = ({ url, likes, description }) => {
 const createComment = ({ avatar, message, name }) => {
   const comment = document.createElement('li');
   comment.innerHTML =
-    '<img class="social__picture" src="" alt="" width="35" height="35"><p class="social__text"></p>'
+    '<img class="social__picture" src="" alt="" width="35" height="35"><p class="social__text"></p>';
   comment.classList.add('social__comment');
 
   comment.querySelector('.social__picture').src = avatar;
