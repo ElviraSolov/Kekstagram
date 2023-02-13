@@ -16,25 +16,6 @@ const MIN_HASHTAG_LENGTH = 2;
 const MAX_HASHTAG_LENGTH = 20;
 const UNVALID_SYMBOLS = /[^a-zA-Z0-9а-яА-ЯёЁ]/g;
 
-const onEscKeydown = (evt) => {
-  if (isEscapeKey(evt) && !isTextFieldFocused()) {
-    evt.preventDefault();
-    closeUploadOverlay();
-  }
-};
-
-let pristine = new Pristine(form, {
-  classTo: 'img-upload__element',
-  errorTextParent: 'img-upload__element',
-  errorTextClass: 'img-upload__error'
-});
-
-const openUploadOverlay = () => {
-  uploadOverlay.classList.remove('hidden');
-  body.classList.add('modal-open');
-  document.addEventListener('keydown', onEscKeydown);
-};
-
 const closeUploadOverlay = () => {
   form.reset();
   pristine.reset();
@@ -46,6 +27,25 @@ const closeUploadOverlay = () => {
 const isTextFieldFocused = () =>
   document.activeElement === hashtags ||
   document.activeElement === comment;
+
+const onEscKeydown = (evt) => {
+  if (isEscapeKey(evt) && !isTextFieldFocused()) {
+    evt.preventDefault();
+    closeUploadOverlay();
+  }
+};
+
+const pristine = new Pristine(form, {
+  classTo: 'img-upload__element',
+  errorTextParent: 'img-upload__element',
+  errorTextClass: 'img-upload__error'
+});
+
+const openUploadOverlay = () => {
+  uploadOverlay.classList.remove('hidden');
+  body.classList.add('modal-open');
+  document.addEventListener('keydown', onEscKeydown);
+};
 
 const startsWithHash = (string) => string[0] === '#';
 

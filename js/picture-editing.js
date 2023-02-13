@@ -63,6 +63,7 @@ const EFFECTS = [
 
 const DEFAULT_EFFECT = EFFECTS[0];
 let chosenEffect = DEFAULT_EFFECT;
+const isDefault = () => chosenEffect === DEFAULT_EFFECT;
 
 noUiSlider.create(slider, {
   range: {
@@ -97,8 +98,6 @@ const onFormChange = (evt) => {
   chosenEffect = EFFECTS.find((effect) => effect.name === evt.target.value);
   updateSlider(chosenEffect);
 };
-
-const isDefault = () => chosenEffect === DEFAULT_EFFECT;
 
 const onSliderUpdate = () => {
   image.style.filter = 'none';
